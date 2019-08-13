@@ -38,10 +38,13 @@ class myTask(context: Context,button: Button,progressBar: ProgressBar,textView: 
     override fun onPostExecute(result: String?) {
         super.onPostExecute(result)
         textView.text = result
+        button.isEnabled = true
     }
 
     override fun onPreExecute() {
         super.onPreExecute()
-
+        textView.text = "Preparing"
+        button.isEnabled = false
+        Thread.sleep(1000)
     }
 }
